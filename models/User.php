@@ -18,5 +18,25 @@
             $sql = "INSERT INTO users (name, email) VALUES ('$name', '$email')";
             return $this->conn->query($sql);
         }
+
+        public function getUserById($id) {
+            $sql = "SELECT * FROM users WHERE id = $id";
+            $result = $this->conn->query($sql);
+            return $result->fetch_assoc();
+        }
+    
+        public function updateUser($id, $name, $email) {
+            $name = $this->conn->real_escape_string($name);
+            $email = $this->conn->real_escape_string($email);
+            $sql = "UPDATE users SET name='$name', email='$email' WHERE id=$id";
+            return $this->conn->query($sql);
+        }
+    
+        public function deleteUser($id) {
+            $sql = "DELETE FROM users WHERE id=$id";
+            return $this->conn->query($sql);
+        }
+
+        
     }
 ?>

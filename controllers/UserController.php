@@ -22,5 +22,22 @@ class UserController {
         include __DIR__ . '/../views/users/create.php';
     }
 
+    public function edit($id) {
+        $userData = $this->user->getUserById($id);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->user->updateUser($id, $_POST['name'], $_POST['email']);
+            header("Location: index.php");
+            exit;
+        }
+        include __DIR__ . '/../views/users/edit.php';
+    }
+
+    public function delete($id) {
+        $this->user->deleteUser($id);
+        header("Location: index.php");
+        exit;
+    }
+
+
 }
 ?>
