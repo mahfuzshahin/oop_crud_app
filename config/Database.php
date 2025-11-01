@@ -3,7 +3,7 @@ class Database {
     private $host = "localhost";
     private $username = "root";
     private $password = "";
-    private $dbname = "crud_oop";
+    private $dbname = "oop_crud";
     protected $conn;
 
     public function __construct() {

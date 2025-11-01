@@ -1,9 +1,9 @@
 <?php
 
-    require_once __DIR__ . '/../config/Database.php';
+    require_once 'config/Database.php';
     class User extends Database {
         public function __construct() {
-            parent::__construct(); // ✅ This line is required
+            parent::__construct();
         }
     
         public function getAllUsers() {
